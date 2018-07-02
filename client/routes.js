@@ -39,5 +39,13 @@ export default (
         });
       }}
     />
+    <Route
+      path="/home"
+      getComponent={(nextState, cb) => {
+        require.ensure([], require => {
+          cb(null, require('./modules/Landing/pages/LandingPage/LandingPage').default);
+        });
+      }}
+    />
   </Route>
 );
