@@ -50,9 +50,9 @@ export default function () {
     }
 
     const job1 = new Job({ name: 'Praveen kumar', title: 'Full Stack Developer', email: 'praveenkumar.mohan@verizon.com', code: 'VZNFSD003',
-     description: 'Full Stack Developer', interviewDate: '8/3/2018', dateApplied: '7/3/2018' });
+     description: 'Full Stack Developer', interviewDate: '8/3/2018', appliedDate: '7/3/2018' });
     const job2 = new Job({ name: 'Praveen kumar', title: 'UI Developer', email: 'praveenkumar.mohan@verizon.com', code: 'VZNFSD002',
-     description: 'UI Developer(ReactJS)', interviewDate: '8/4/2018', dateApplied: '7/3/2018' });
+     description: 'UI Developer(ReactJS)', interviewDate: '8/4/2018', appliedDate: '7/3/2018' });
 
     Job.create([job1, job2], (error) => {
       if (!error) {

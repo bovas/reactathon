@@ -8,7 +8,7 @@ const jobSchema = new Schema({
   code: { type: 'String', required: true },
   description: { type: 'String', required: true },
   interviewDate: { type: 'String', required: true },
-  dateApplied: { type: 'Date', default: Date.now, required: true },
+  appliedDate: { type: 'Date', default: Date.now, required: true },
 });
 
 export default mongoose.model('Job', jobSchema);

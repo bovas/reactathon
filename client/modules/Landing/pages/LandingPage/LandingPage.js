@@ -1,16 +1,24 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
-import { fetchAppliedJobs } from '../../LandingActions';
+import LandingPageJobs from '../../components/LandingPageJobs';
+
+import { fetchAppliedJobs, fetchJobDetails } from '../../LandingActions';
 import { getAppliedJobs } from '../../LandingReducer';
 
 class LandingPage extends Component {
   componentDidMount() {
     this.props.dispatch(fetchAppliedJobs());
   }
+  handleClickJob = code => {
+    this.props.dispatch(fetchJobDetails(code));
+  }
   render() {
     return (
-      <div>Landing Page</div>
+      <div>
+        <h6>Home</h6>
+        <LandingPageJobs jobs={this.props.jobs} handleClickJob={this.handleClickJob} />
+      </div>
     );
   }
 }
@@ -25,10 +33,13 @@ function mapStateToProps(state) {
 
 LandingPage.propTypes = {
   jobs: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.id,
     name: PropTypes.string.isRequired,
     title: PropTypes.string.isRequired,
+    email: PropTypes.string.isRequired,
     code: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    interviewDate: PropTypes.string.isRequired,
+    appliedDate: PropTypes.string.isRequired,
   })).isRequired,
   dispatch: PropTypes.func.isRequired,
 };

@@ -10,8 +10,16 @@ export function fetchAppliedJobsAction(jobs) {
 }
 export function fetchAppliedJobs() {
   return (dispatch) => {
-    return callApi('jobs').then(res => {
-      dispatch(fetchAppliedJobsAction(res.appliedJobs));
+    return callApi('jobs').then(res => {      
+      dispatch(fetchAppliedJobsAction(res.jobs));
+    });
+  };
+}
+
+export function fetchJobDetails(code) {
+  return (dispatch) => {
+    return callApi(`jobs/${code}`).then(res => {
+      dispatch(fetchAppliedJobsAction(res.jobs));
     });
   };
 }
