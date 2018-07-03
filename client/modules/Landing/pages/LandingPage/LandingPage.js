@@ -11,6 +11,7 @@ class LandingPage extends Component {
     this.props.dispatch(fetchAppliedJobs());
   }
   handleClickJob = code => {
+    console.log('TEST', code);
     this.props.dispatch(fetchJobDetails(code));
   }
   render() {
@@ -26,6 +27,7 @@ class LandingPage extends Component {
 LandingPage.need = [() => { return fetchAppliedJobs(); }];
 
 function mapStateToProps(state) {
+  console.log('state', state);
   return {
     jobs: getAppliedJobs(state),
   };

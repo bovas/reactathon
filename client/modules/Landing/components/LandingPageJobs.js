@@ -1,22 +1,51 @@
 import React, { PropTypes } from 'react';
 
+// Import Style
+import styles from './LandingPageJobs.css';
+
 // Import Components
 import JobItem from './JobItem/JobItem';
 
 function LandingPageJobs(props) {
-  return (
-    <div className="listView">
-      {
-        props.jobs.map(job => (
-          <JobItem
-            job={job}
-            key={job.code}
-            onClick={() => props.handleClickJob(job.code)}
-          />
-        ))
-      }
-    </div>
-  );
+  console.log('props', props);
+  if (props.jobs) {
+    return (
+      <table className="table" className={styles.tableContent}>
+        <thead>
+          <tr>
+            <th scope="col">#</th>
+            <th scope="col">Job Code</th>
+            <th scope="col">Last</th>
+            <th scope="col">Handle</th>
+            <th scope="col">Handle</th>
+          </tr>
+        </thead>
+        <tbody>
+        {
+          props.jobs.map(job => (
+            <JobItem
+              job={job}
+              key={job.code}
+              onClick={() => props.handleClickJob(job.code)}
+            />
+          ))
+        }
+        </tbody>
+      </table>
+      /* <div className="listView" >
+        {
+          props.jobs.map(job => (
+            <JobItem
+              job={job}
+              key={job.code}
+              onClick={() => props.handleClickJob(job.code)}
+            />
+          ))
+        }
+      </div> */
+    );
+  }
+  return (<div>Error in Loading...</div>);
 }
 
 LandingPageJobs.propTypes = {

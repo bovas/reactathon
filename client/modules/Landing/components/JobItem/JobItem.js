@@ -3,11 +3,11 @@ import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 // Import Style
-import styles from './JobItem.css';
+// import styles from './JobItem.css';
 
 function JobItem(props) {
   return (
-    <div className={styles['single-post']}>
+    /* <div className={styles['single-post']}>
       <h3 className={styles['post-title']}>
         <Link to={`/jobs/${props.job.code}`} >
           {props.job.code}
@@ -17,7 +17,15 @@ function JobItem(props) {
       <p className={styles['post-desc']}>{props.job.description}</p>
       <p className={styles['post-action']}><a href="#" onClick={props.onClick}><FormattedMessage id="viewJob" /></a></p>
       <hr className={styles.divider} />
-    </div>
+    </div> */
+    <tr>
+      <th scope="row">1</th>
+      <td><Link to={`/jobs/${props.job.code}`} >
+            {props.job.code}</Link></td>
+      <td>{props.job.name}</td>
+      <td>{props.job.description}</td>
+      <td><p><a href="#" onClick={props.onClick}><FormattedMessage id="viewJob" /></a></p></td>
+    </tr>
   );
 }
 

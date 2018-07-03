@@ -10,7 +10,7 @@ export function fetchAppliedJobsAction(jobs) {
 }
 export function fetchAppliedJobs() {
   return (dispatch) => {
-    return callApi('jobs').then(res => {      
+    return callApi('jobs').then(res => {
       dispatch(fetchAppliedJobsAction(res.jobs));
     });
   };
