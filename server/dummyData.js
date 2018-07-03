@@ -1,7 +1,7 @@
-import Post from './models/post';
+import Job from './models/job';
 
 export default function () {
-  Post.count().exec((err, count) => {
+  /* Post.count().exec((err, count) => {
     if (count > 0) {
       return;
     }
@@ -38,6 +38,23 @@ export default function () {
     const post2 = new Post({ name: 'Admin', title: 'Lorem Ipsum', slug: 'lorem-ipsum', cuid: 'cikqgkv4q01ck7453ualdn3hf', content: content2 });
 
     Post.create([post1, post2], (error) => {
+      if (!error) {
+        // console.log('ready to go....');
+      }
+    });
+  });
+ */
+  Job.count().exec((err, count) => {
+    if (count > 0) {
+      return;
+    }
+
+    const job1 = new Job({ name: 'Praveen kumar', title: 'Full Stack Developer', email: 'praveenkumar.mohan@verizon.com', code: 'VZNFSD003',
+     description: 'Full Stack Developer', interviewDate: '8/3/2018', dateApplied: '7/3/2018' });
+    const job2 = new Job({ name: 'Praveen kumar', title: 'UI Developer', email: 'praveenkumar.mohan@verizon.com', code: 'VZNFSD002',
+     description: 'UI Developer(ReactJS)', interviewDate: '8/4/2018', dateApplied: '7/3/2018' });
+
+    Job.create([job1, job2], (error) => {
       if (!error) {
         // console.log('ready to go....');
       }
