@@ -16,27 +16,30 @@ class SimpleReactFileUpload extends React.Component {
     e.preventDefault() // Stop form submit
     this.fileUpload(this.state.file).then((response)=>{
       console.log(response.data);
-    })
+      alert('File uploaded.');
+    }).catch( error => {alert('File uploading failed.')});
   }
   onChange(e) {
     this.setState({file:e.target.files[0]})
   }
   fileUpload(file){
-    const url = 'http://localhost:8000/api/upload';
+    const url = 'http://127.0.0.1:8000/api/upload';
     const formData = new FormData();
     formData.append('file',file)
+    formData.append('filename', file.value);
     const config = {
         headers: {
-            'content-type': 'multipart/form-data'
+            'content-type': 'multipart/form-data',
+            'Access-Control-Allow-Origin': '*'
         }
     }
-    return  post(url, formData,config)
+    return  post(url, formData,config);
   }
 
   render() {
     return (
       <form onSubmit={this.onFormSubmit}>
-        <h1>File Upload</h1>
+        <h1>Verification Documents Upload</h1>
         <input type="file" onChange={this.onChange} />
         <button type="submit">Upload</button>
       </form>
