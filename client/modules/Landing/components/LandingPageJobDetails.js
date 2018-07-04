@@ -1,17 +1,22 @@
 import React, { PropTypes } from 'react';
 
 // Import Style
-import styles from './LandingPageJobs.css';
+import styles from './ManagerFdb.css';
 
 
 function LandingPageJobDetails(props) {
   console.log('props', props);
   if (props.jobDetails) {
     return (
-      <div>
+      <div className={styles.jobDesc}>
         <h3>Job Description</h3>
+        <hr/>
         <div>
           {props.jobDetails.desc}
+        </div>
+        <div>Lorem Ipsum is simply dummy text of the printing and typesetting industry.
+                Lorem Ipsum has been the industry's standard dummy text ever since the 1500s,
+                when an unknown printer took a galley of type and scrambled it to make a type specimen book.
         </div>
       </div>
     );

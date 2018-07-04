@@ -2,6 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 import LandingPageJobDetails from '../../components/LandingPageJobDetails';
+import ProgressBar from '../../components/ProgressBar';
+import ManagerFdb from '../../components/ManagerFdb';
+import styles from './JobDetailsPage.css';
 
 import { fetchJobDetails } from '../../LandingActions';
 import { getJobDetails } from '../../LandingJobDetailsReducer';
@@ -13,7 +16,15 @@ class JobDetailsPage extends Component {
   render() {
     return (
       <div>
+        <ProgressBar jobDetails={this.props.jobDetails} />
         <LandingPageJobDetails jobDetails={this.props.jobDetails} />
+        <div className={styles.feedBck}>
+          <h3> FeedBack</h3>
+          <hr/>
+          <ManagerFdb title="Manager Feedback" jobDetails={this.props.jobDetails} />
+          <hr/>
+          <ManagerFdb title="Technical Manager Feedback" jobDetails={this.props.jobDetails} />
+        </div>
       </div>
     );
   }
