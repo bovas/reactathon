@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 import LandingPageJobDetails from '../../components/LandingPageJobDetails';
+import SimpleReactFileUpload from '../../components/fileupload/FileUpload';
 
 import { fetchJobDetails } from '../../LandingActions';
 import { getJobDetails } from '../../LandingJobDetailsReducer';
@@ -14,6 +15,7 @@ class JobDetailsPage extends Component {
     return (
       <div>
         <LandingPageJobDetails jobDetails={this.props.jobDetails} />
+        <SimpleReactFileUpload />
       </div>
     );
   }

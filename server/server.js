@@ -33,6 +33,8 @@ if (isDevMode) {
   }));
   app.use(webpackHotMiddleware(compiler));
 }
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
 
 // React And Redux Setup
 import { configureStore } from '../client/store';
@@ -47,6 +49,7 @@ import routes from '../client/routes';
 import { fetchComponentData } from './util/fetchData';
 import posts from './routes/post.routes';
 import jobs from './routes/jobs.routes';
+import uploads from './routes/upload.routes';
 import dummyData from './dummyData';
 import serverConfig from './config';
 
@@ -73,6 +76,7 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use('/api', posts);
 app.use('/api', jobs);
+app.use('/api', uploads);
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {
