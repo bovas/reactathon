@@ -6,6 +6,7 @@ import ProgressBar from '../../components/ProgressBar';
 import ManagerFdb from '../../components/ManagerFdb';
 import styles from './JobDetailsPage.css';
 import SimpleReactFileUpload from '../../components/fileupload/FileUpload';
+import CanditateForm from '../../components/CanditateForm';
 
 import { fetchJobDetails } from '../../LandingActions';
 import { getJobDetails } from '../../LandingJobDetailsReducer';
@@ -18,7 +19,11 @@ class JobDetailsPage extends Component {
     return (
       <div>
         <ProgressBar jobDetails={this.props.jobDetails} />
+        <div className={styles.sectionSeparation}></div>
+
         <LandingPageJobDetails jobDetails={this.props.jobDetails} />
+        <div className={styles.sectionSeparation}></div>
+
         <div className={styles.feedBck}>
           <h3> FeedBack</h3>
           <hr/>
@@ -26,6 +31,10 @@ class JobDetailsPage extends Component {
           <hr/>
           <ManagerFdb title="Technical Manager Feedback" jobDetails={this.props.jobDetails} />
         </div>
+        <div className={styles.sectionSeparation}></div>
+        <CanditateForm />
+        
+        <div className={styles.sectionSeparation}></div>
         <SimpleReactFileUpload />
       </div>
     );

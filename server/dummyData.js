@@ -67,9 +67,9 @@ export default function () {
       return;
     }
 
-    const jobDetails1 = new JobDetails({ desc: 'DEscription 1', name: 'Full Stack Developer', managerfeedback: 'None', HrMessage: 'None', code: 'VZNFSD003',
+    const jobDetails1 = new JobDetails({ desc: 'Description 1', name: 'Full Stack Developer', managerfeedback: 'None', HrMessage: 'None', code: 'VZNFSD003',
     interviewDetails: 'Dummy date for interv details', interviewDate: '8/3/2018', progressCode: '2' });
-    const jobDetails2 = new JobDetails({ desc: 'DEscription 2', name: 'Full Stack Developer', managerfeedback: 'None', HrMessage: 'None', code: 'VZNFSD004',
+    const jobDetails2 = new JobDetails({ desc: 'Description 2', name: 'Full Stack Developer', managerfeedback: 'None', HrMessage: 'None', code: 'VZNFSD004',
     interviewDetails: 'Dummy date for interv details 2', interviewDate: '10/3/2018', progressCode: '3' });
 
     JobDetails.create([jobDetails1, jobDetails2], (error) => {
