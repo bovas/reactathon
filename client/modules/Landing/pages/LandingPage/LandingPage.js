@@ -12,7 +12,8 @@ class LandingPage extends Component {
   }
   handleClickJob = code => {
     console.log('TEST', code);
-    this.props.dispatch(fetchJobDetails(code));
+    //this.props.dispatch(fetchJobDetails(code));
+    this.context.router.push(`/jobs/${code}`);
   }
   render() {
     return (

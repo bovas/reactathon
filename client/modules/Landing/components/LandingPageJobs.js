@@ -10,17 +10,7 @@ function LandingPageJobs(props) {
   console.log('props', props);
   if (props.jobs) {
     return (
-      <table className="table" className={styles.tableContent}>
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Job Code</th>
-            <th scope="col">Last</th>
-            <th scope="col">Handle</th>
-            <th scope="col">Handle</th>
-          </tr>
-        </thead>
-        <tbody>
+      <div className={styles.tableContent}>
         {
           props.jobs.map(job => (
             <JobItem
@@ -30,19 +20,7 @@ function LandingPageJobs(props) {
             />
           ))
         }
-        </tbody>
-      </table>
-      /* <div className="listView" >
-        {
-          props.jobs.map(job => (
-            <JobItem
-              job={job}
-              key={job.code}
-              onClick={() => props.handleClickJob(job.code)}
-            />
-          ))
-        }
-      </div> */
+        </div>    
     );
   }
   return (<div>Error in Loading...</div>);

@@ -4,3 +4,10 @@
   padding: 15px;
   margin: 0 auto;
 }
+body{
+	color: #666;
+	background-color: gray;
+} 
+ul{
+	list-style: none;
+}

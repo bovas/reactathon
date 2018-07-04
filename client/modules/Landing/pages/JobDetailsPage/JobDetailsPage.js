@@ -25,7 +25,7 @@ class JobDetailsPage extends Component {
           <ManagerFdb title="Manager Feedback" jobDetails={this.props.jobDetails} />
           <hr/>
           <ManagerFdb title="Technical Manager Feedback" jobDetails={this.props.jobDetails} />
-        </div
+        </div>
         <SimpleReactFileUpload />
       </div>
     );

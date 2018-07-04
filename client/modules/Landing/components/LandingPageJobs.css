@@ -1,11 +1,4 @@
 .tableContent {
+	margin-top:20px;
     width: 100%;
-}
-
-.tableContent tr {
-    border-bottom: 1px solid #333;
-}
-
-.tableContent tr, .tableContent th {
-    text-align: center;
 }

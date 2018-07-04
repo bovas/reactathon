@@ -3,29 +3,33 @@ import { Link } from 'react-router';
 import { FormattedMessage } from 'react-intl';
 
 // Import Style
-// import styles from './JobItem.css';
+import styles from './JobItem.css';
 
 function JobItem(props) {
-  return (
-    /* <div className={styles['single-post']}>
-      <h3 className={styles['post-title']}>
-        <Link to={`/jobs/${props.job.code}`} >
-          {props.job.code}
-        </Link>
-      </h3>
-      <p className={styles['author-name']}><FormattedMessage id="by" /> {props.job.name}</p>
-      <p className={styles['post-desc']}>{props.job.description}</p>
-      <p className={styles['post-action']}><a href="#" onClick={props.onClick}><FormattedMessage id="viewJob" /></a></p>
-      <hr className={styles.divider} />
-    </div> */
-    <tr>
+  return (    
+    /*<tr>
       <th scope="row">1</th>
       <td><Link to={`/jobs/${props.job.code}`} >
             {props.job.code}</Link></td>
       <td>{props.job.name}</td>
       <td>{props.job.description}</td>
       <td><p><a href="#" onClick={props.onClick}><FormattedMessage id="viewJob" /></a></p></td>
-    </tr>
+    </tr>*/
+
+    <div className={styles.row} onClick={props.onClick}>  
+      <ul>
+        <li title="" className={styles.title}>{props.job.title}</li>
+      </ul> 
+      <span className={styles.org}>Verizon Wireless</span> <br />
+      <span className={styles.exp}><em></em>6-8 yrs</span> <br />
+      <span className={styles.loc}><em></em><span>Chennai </span></span>  
+      <div className={styles.more}> <span className={styles.label}>Keyskills:</span>
+       <div className={styles.desc}> <span className={styles.skill}>Java, ReactJS, Redux, GraphQL</span> </div> 
+      <span className={styles.label}>Job Description:</span> <span className={styles.desc}></span>{props.job.description}</div>
+      <br />
+      <button type="button" className={styles.viewBtn} onClick={props.onClick}>View Job Details</button>
+    </div>  
+      
   );
 }
 
