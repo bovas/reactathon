@@ -5,4 +5,6 @@ const router = new Router();
 // Get all Jobss
 router.route('/jobs').get(JobsController.getJobs);
 
+router.route('/jobs/:code').get(JobsController.getJobDetails);
+
 export default router;

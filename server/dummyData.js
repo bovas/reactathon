@@ -1,4 +1,5 @@
 import Job from './models/job';
+import JobDetails from './models/jobDetails';
 
 export default function () {
   /* Post.count().exec((err, count) => {
@@ -55,6 +56,23 @@ export default function () {
      description: 'UI Developer(ReactJS)', interviewDate: '8/4/2018', appliedDate: '7/3/2018' });
 
     Job.create([job1, job2], (error) => {
+      if (!error) {
+        // console.log('ready to go....');
+      }
+    });
+  });
+
+  JobDetails.count().exec((err, count) => {
+    if (count > 0) {
+      return;
+    }
+
+    const jobDetails1 = new JobDetails({ desc: 'DEscription 1', name: 'Full Stack Developer', managerfeedback: 'None', HrMessage: 'None', code: 'VZNFSD003',
+    interviewDetails: 'Dummy date for interv details', interviewDate: '8/3/2018', progressCode: '2' });
+    const jobDetails2 = new JobDetails({ desc: 'DEscription 2', name: 'Full Stack Developer', managerfeedback: 'None', HrMessage: 'None', code: 'VZNFSD004',
+    interviewDetails: 'Dummy date for interv details 2', interviewDate: '10/3/2018', progressCode: '3' });
+
+    JobDetails.create([jobDetails1, jobDetails2], (error) => {
       if (!error) {
         // console.log('ready to go....');
       }
