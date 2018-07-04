@@ -33,6 +33,9 @@ if (isDevMode) {
   }));
   app.use(webpackHotMiddleware(compiler));
 }
+const fileUpload = require('express-fileupload');
+const cors = require('cors');
+const time = require('express-timestamp')
 
 // React And Redux Setup
 import { configureStore } from '../client/store';
@@ -73,6 +76,27 @@ app.use(bodyParser.urlencoded({ limit: '20mb', extended: false }));
 app.use(Express.static(path.resolve(__dirname, '../dist/client')));
 app.use('/api', posts);
 app.use('/api', jobs);
+//app.use('/api', uploads);
+app.use(fileUpload());
+app.use(time.init)
+
+app.post('/api/upload', function(req, res) {
+  if (!req.files)
+    return res.status(400).send('No files were uploaded.');
+ 
+  // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+  console.log('req.files', req.files.file.name);
+  let sampleFile = req.files.file;
+ 
+  // Use the mv() method to place the file somewhere on your server
+  let fileName = req.files.file.name+ '_'+ req.timestamp;
+  sampleFile.mv(`${__dirname}/public/${fileName}`, function(err) {
+    if (err)
+      return res.status(500).send(err);
+ 
+    res.send('File uploaded!');
+  });
+});
 
 // Render Initial HTML
 const renderFullPage = (html, initialState) => {

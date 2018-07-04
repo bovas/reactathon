@@ -2,9 +2,13 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 
 import LandingPageJobDetails from '../../components/LandingPageJobDetails';
+<<<<<<< HEAD
 import ProgressBar from '../../components/ProgressBar';
 import ManagerFdb from '../../components/ManagerFdb';
 import styles from './JobDetailsPage.css';
+=======
+import SimpleReactFileUpload from '../../components/fileupload/FileUpload';
+>>>>>>> 9cb2517fd92365745df0269af4640bad6883b1fc
 
 import { fetchJobDetails } from '../../LandingActions';
 import { getJobDetails } from '../../LandingJobDetailsReducer';
@@ -18,6 +22,7 @@ class JobDetailsPage extends Component {
       <div>
         <ProgressBar jobDetails={this.props.jobDetails} />
         <LandingPageJobDetails jobDetails={this.props.jobDetails} />
+<<<<<<< HEAD
         <div className={styles.feedBck}>
           <h3> FeedBack</h3>
           <hr/>
@@ -25,6 +30,9 @@ class JobDetailsPage extends Component {
           <hr/>
           <ManagerFdb title="Technical Manager Feedback" jobDetails={this.props.jobDetails} />
         </div>
+=======
+        <SimpleReactFileUpload />
+>>>>>>> 9cb2517fd92365745df0269af4640bad6883b1fc
       </div>
     );
   }
