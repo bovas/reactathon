@@ -26,14 +26,14 @@ class JobDetailsPage extends Component {
 
         <div className={styles.feedBck}>
           <h3> FeedBack</h3>
-          <hr/>
+          <hr />
           <ManagerFdb title="Manager Feedback" jobDetails={this.props.jobDetails} />
-          <hr/>
+          <h r/>
           <ManagerFdb title="Technical Manager Feedback" jobDetails={this.props.jobDetails} />
         </div>
         <div className={styles.sectionSeparation}></div>
         <CanditateForm />
-        
+
         <div className={styles.sectionSeparation}></div>
         <SimpleReactFileUpload />
       </div>
